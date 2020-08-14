@@ -50,7 +50,7 @@ UserSchema.methods.validatePassword = function(password) {
 UserSchema.plugin(
     uniqueValidator,
     {
-        message: 'is already taken'
+        message: 'User already exists'
     }
 );
 

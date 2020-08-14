@@ -6,6 +6,8 @@
         "MONGO_PORT": 27017,
         "MONGO_HOST": "localhost",
         "PORT": 3000,
-        "NODE_ENV": "development"
+        "NODE_ENV": "development",
+        "REDIS_PORT": 6379,
+        "REDIS_HOST": "localhost"
     }
 }

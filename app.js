@@ -9,6 +9,7 @@ const productRoutes = require('./api/routes/products');
 const itemRoutes = require('./api/routes/items');
 const userRoutes = require('./api/routes/users');
 const { handleCastErrorDB, handleDuplicateFieldsDB, handleValidationErrorDB, handleInvalidPathError } = require('./lib/custom_error');
+const { rateLimit } = require('./lib/rate_limiting');
 
 const sendErrorDev = (err, res) => {
     res.status(err.statusCode).json({
@@ -41,6 +42,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev'));
+app.use(rateLimit);
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
